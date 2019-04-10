@@ -6,8 +6,15 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-pipfile = "*"
-flask = "*"
+pipfile = "==0.0.2"
+click = "==7.0"
+gunicorn = ">=19.5.0"
+itsdangerous = "==1.1.0"
+toml = "==0.10.0"
+Flask = "==1.0.2"
+Jinja2 = "==2.10.1"
+MarkupSafe = "==1.1.1"
+Werkzeug = "==0.15.2"
 
 [requires]
 python_version = "3.7"
