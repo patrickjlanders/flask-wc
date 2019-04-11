@@ -8,6 +8,7 @@ class Config(object):
     TESTING = False
     CSRF_ENABLED = True
     SECRET_KEY = 'this-really-needs-to-be-changed'
+    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
 
 
 class ProductionConfig(Config):
@@ -25,6 +26,7 @@ class DevelopmentConfig(Config):
     TESTING = True
     FLASK_ENV = "development"
     DEBUG = True
+
 
 
 class TestingConfig(Config):
