@@ -1,14 +1,27 @@
-
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.dialects.postgresql import JSON
 
-db = SQLAlchemy()
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+db = SQLAlchemy(app)
+
+from sqlalchemy.dialects.postgresql import JSON
 
 
 class Result(db.Model):
     __tablename__ = 'results'
 
     id = db.Column(db.Integer, primary_key=True)
-    url = db.column(db.string())
+    url = db.Column(db.String())
     result_all = db.Column(JSON)
+    result_no_stop_words = db.Column(JSON)
+
+    def __init__(self, url, result_all, result_no_stop_words):
+        self.url = url
+        self.result_all = result_all
+        self.result_no_stop_words = result_no_stop_words
+
+    def __repr__(self):
+        return '<id {}>'.format(self.id)
+
 

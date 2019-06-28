@@ -1,3 +1,4 @@
 import os
-from flask_by_example import create_app
+from app import create_app
+app = create_app(config_filename=os.environ['APP_SETTINGS'])
 
